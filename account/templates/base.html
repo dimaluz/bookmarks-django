@@ -44,6 +44,19 @@
         <div id="content">
             {% block content %}
             {% endblock %}
-        </div> 
+        </div>
+        <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script> 
+        <script>
+            const csrftoken = Cookies.get('csrftoken');
+            document.addEventListener('DOMContentLoaded', (event) => { // DOM загружена
+                {% block domready %}
+                    urlpatterns = [
+                        path('create/', views.image_create, name='create'), 
+                        path('detail/<int:id>/<slug:slug>/',views.image_detail, name='detail'), 
+                        path('like/', views.image_like, name='like'),
+                    ]
+                {% endblock %}
+            })
+        </script>
     </body> 
 </html>
