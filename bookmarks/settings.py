@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
 
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
 ]
 
 MIDDLEWARE = [
