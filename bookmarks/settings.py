@@ -29,13 +29,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'easy_thumbnails',
 
+    #third-part apps
+    'easy_thumbnails',
+    'debug_toolbar',
+
+    #local apps
     'images.apps.ImagesConfig',
     'actions.apps.ActionsConfig',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -147,3 +152,7 @@ ABSOLUTE_URL_OVERRIDES = {
 }
 
 THUMBNAIL_DEBUG = True
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
